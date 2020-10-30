@@ -37,16 +37,49 @@
 
     <script>
         const inputs = document.querySelectorAll('input');
+        const div = document.createElement('div');
+        div.style.position = 'fixed';
+        div.style.top = '0px';
+        div.style.right = '0px';
+        div.style.bottom = '0px';
+        div.style.left = '0px';
+        div.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
+        div.style.zIndex = '1000';
+
         const focusHandler = (ev) => {
             const input = ev.target;
-            const top = input.getClientRects()[0].top;
-            // window.scrollY = 
+            /* const top = input.getClientRects()[0].top;
+            // Todo: change by window.scrollY = 
             console.log(top);
-            window.scrollTo(0, top - 25);
+            window.scrollTo(0, top - 25); */
+
+            // B version            
+            document.body.appendChild(div);
+            const s = window.getComputedStyle(div);
+            console.log(s);
+
+            input.style.position = 'fixed';
+            input.style.left = '50px';
+            input.style.right = '50px';
+            input.style.width = `${window.innerWidth - 100}px`;
+            input.style.top = '50px';
+            input.style.zIndex = 1001;
         };
+
+        const onBlur = (ev) => {
+            const input = ev.target;
+            input.style.position = 'static';
+            input.style.left = 'auto';
+            input.style.right = 'auto';
+            input.style.width = '100%';
+            input.style.top = 'auto';
+            input.style.zIndex = 'auto';
+            document.body.removeChild(div);
+        }
 
         for (let i = 0; i < inputs.length; i++) {
             inputs[i].addEventListener('focus', focusHandler);
+            inputs[i].addEventListener('blur', onBlur);
         }
     </script>
 </body>
