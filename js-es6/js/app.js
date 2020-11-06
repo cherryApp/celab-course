@@ -19,7 +19,7 @@ class App {
             serverData => {
                 console.log(serverData);
                 this.appName = serverData[0].appName; 
-                this.table.fill(serverData[0].columns);
+                this.table.fill(serverData[0].columns, serverData[1]);
             },
             err => console.error(err)
         );
