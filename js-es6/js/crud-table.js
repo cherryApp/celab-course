@@ -15,13 +15,33 @@ export class CrudTable {
         const tbody = this.table.querySelector('tbody');
         for (const row of data) {
             const tr = document.createElement('tr');
+            tr.rowData = row;
             for (const col of this.currentColumns) {
                 const td = document.createElement('td');
-                td.innerHTML = row[col.key];
+                td.innerHTML = `<input class="form-control" value="${row[col.key]}">`;
                 tr.appendChild(td);
             }
+            this.getButtonGroup(tr);
             tbody.appendChild(tr);
         }
+    }
+
+    getButtonGroup(tr) {
+        const uBtn = document.createElement('button');
+        uBtn.className = 'btn btn-success';
+        uBtn.innerHTML = `<i class="fa fa-refresh"></i>`;
+        uBtn.addEventListener('click', (ev) => {
+            const data = tr.rowData;
+            console.log(data);
+        });
+
+        const bGroup = document.createElement('div');
+        bGroup.className = 'btn-group';
+        bGroup.appendChild(uBtn);
+
+        const td = document.createElement('td');
+        td.appendChild(bGroup);
+        tr.appendChild(td);
     }
 
     set columns(columns = []) {
@@ -32,5 +52,7 @@ export class CrudTable {
             th.innerHTML = col.label;
             tr.appendChild(th);
         }
+        const th = document.createElement('th');
+        tr.appendChild(th);
     }
 }
