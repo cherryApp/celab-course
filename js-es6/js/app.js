@@ -1,30 +1,25 @@
+import { GateWay } from './gateway.js';
+
 class App {
     constructor() {
         this.brandElement = document.querySelector('.navbar-brand');
+        this.gateway = new GateWay();
         this.init();
     }
     
-    // Get settings from the server.
-    getSettings() {
-        return fetch('http://localhost:3000/settings')
-            .then( r => r.json() );
-    }
-    
-    // Get user from the server.
-    getUsers() {
-        return fetch('http://localhost:3000/users')
-            .then( r => r.json() );
-    }
-    
+    // Initialize object.
     init() {
-        Promise.all([this.getSettings(), this.getUsers()])
-            .then(
-                serverData => {
-                    console.log(serverData);
-                    this.appName = serverData[0].appName; 
-                },
-                err => console.error(err)
-            );
+        Promise.all([
+            this.gateway.read('settings'), 
+            this.gateway.read('users')
+        ])
+        .then(
+            serverData => {
+                console.log(serverData);
+                this.appName = serverData[0].appName; 
+            },
+            err => console.error(err)
+        );
     }
     
     // Set app name.

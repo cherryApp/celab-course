@@ -1,5 +1,5 @@
 // HTTP communication service.
-class GateWay {
+export class GateWay {
     constructor(endpoint = 'http://localhost:3000') {
         this.endpoint = endpoint;
     }
