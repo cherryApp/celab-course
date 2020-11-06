@@ -1,6 +1,14 @@
 {
   "settings": {
-    "appName": "Cavity Eye System"
+    "appName": "Cavity Eye System",
+    "columns": [
+      { "key": "id", "label": "#"},
+      { "key": "firstName", "label": "Fname"},
+      { "key": "lastName", "label": "Lname"},
+      { "key": "email", "label": "Email"},
+      { "key": "gender", "label": "Gender"},
+      { "key": "address", "label": "Address"}
+    ]
   },
   "users": [
     {
