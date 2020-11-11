@@ -19,3 +19,7 @@ createApp(App)
     .use(VueAxios, axios)
     .mount('#app')
 ```
+
+## Localisation
+- `vue add i18n`
+- 
