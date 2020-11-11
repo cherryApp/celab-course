@@ -6,16 +6,15 @@
 <script>
 import Main from './components/Main.vue'
 import Nav from './components/Nav'
-import { provideI18n } from './plugin/i18nPlugin';
-import { messages } from './plugin/messages';
+import { provideI18n, loadMessages } from './plugin/i18nPlugin';
+// import { messages } from './plugin/messages';
 
 export default {
   name: 'App',
   setup() {
-    console.log(messages);
+    loadMessages('http://localhost:3000/locales');
     provideI18n({
-      locale: 'en',
-      messages
+      locale: 'hu'
     })
   },
   components: {
