@@ -1,12 +1,17 @@
 // i18nPlugin.js
 import { ref, provide, inject } from 'vue';
 
+const localeConfig = {
+    messages: {}
+};
+
 const createI18n = config => ({
   locale: ref(config.locale),
-  messages: config.messages,
+  messages: setMessages(config.messages),
   $t(key) {
-      console.log(config.locale, ref(config.locale));
-    return this.messages[this.locale.value][key];
+    return localeConfig.messages[this.locale.value]
+        ? localeConfig.messages[this.locale.value][key] 
+        : '';
   }
 });
 
@@ -22,4 +27,13 @@ export function useI18n() {
   if (!i18n) throw new Error("No i18n provided!!!");
 
   return i18n;
+}
+
+export function setMessages(messages) {
+    localeConfig.messages = messages;
+    return localStorage.messages;
+}
+
+export function updateMessage(key, content) {
+    localeConfig.messages[key] = content;
 }

@@ -21,5 +21,8 @@ createApp(App)
 ```
 
 ## Localisation
-- `npm i @vue/composition-api`
+- Create a plugin
+- `src/plugin/i18nPlugin.js`
+- Use: `App.vue:14`
+- Use: `Nav.vue:70`
 - 
