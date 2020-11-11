@@ -1,10 +1,21 @@
 {
+    "navigation": [
+        { "link": "/", "text": "home", "icon": "fa fa-home" },
+        { "link": "/orders", "text": "orders", "icon": "fa fa-gift" },
+        { "link": "/users", "text": "users", "icon": "fa fa-user" }
+    ],
     "locales": {
         "en": {
-            "hello_world": "Hello World"
+            "hello_world": "Hello World",
+            "home": "Home",
+            "orders": "Orders",
+            "users": "Users"
         },
         "hu": {
-            "hello_world": "Heló Világ"
+            "hello_world": "Heló Világ",
+            "home": "Home",
+            "orders": "Rendelések",
+            "users": "Felhasználók"
         }
     }
 }

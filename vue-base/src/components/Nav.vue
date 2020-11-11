@@ -14,13 +14,8 @@
     </button>
     <div class="collapse navbar-collapse" id="collapsibleNavId">
       <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
-        <li class="nav-item active">
-          <a class="nav-link" href="#"
-            >Home <span class="sr-only">(current)</span></a
-          >
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
+        <li v-for="item in navigation" :key="item.link" class="nav-item active">
+          <a class="nav-link" href="{{ item.link }}">{{ i18n.$t(item.text) }}</a>
         </li>
       </ul>
       <form class="form-inline my-2 my-lg-0">
@@ -45,17 +40,20 @@
             class="dropdown-menu dropdown-menu-right"
             aria-labelledby="dropdownId"
           >
-            <button 
-                @click="switchLanguage" 
-                class="dropdown-item"
-                data-lang="en"
-              >en
+            <button
+              @click="switchLanguage"
+              class="dropdown-item"
+              data-lang="en"
+            >
+              en
             </button>
-            <button 
-                @click="switchLanguage" 
-                class="dropdown-item"
-                data-lang="hu"
-              >hu</button>
+            <button
+              @click="switchLanguage"
+              class="dropdown-item"
+              data-lang="hu"
+            >
+              hu
+            </button>
           </div>
         </li>
       </ul>
@@ -72,13 +70,14 @@ export default {
 
     const switchLanguage = (event) => {
       // const locale = i18n.locale.value === 'en' ? 'hu' : 'en';
-      i18n.locale.value = event.target.getAttribute('data-lang') || 'en';
+      i18n.locale.value = event.target.getAttribute("data-lang") || "en";
     };
 
     return { i18n, switchLanguage };
   },
   props: {
     title: String,
+    navigation: Array,
   },
 };
 </script>
