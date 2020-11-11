@@ -1,6 +1,6 @@
 <template>
     <nav class="navbar navbar-expand-sm navbar-light bg-light">
-        <a class="navbar-brand" href="#">{{ title }}</a>
+        <a class="navbar-brand" href="#">{{ i18n.$t(title) }}</a>
         <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#collapsibleNavId" aria-controls="collapsibleNavId"
             aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
@@ -25,13 +25,27 @@
                 <input class="form-control mr-sm-2" type="text" placeholder="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
             </form>
+            <button class="btn btn-light ml-1" @click="switchLanguage">
+                <i class="fa fa-language"></i>
+            </button>
         </div>
     </nav>
 </template>
 
 <script>
+import { useI18n } from '../plugin/i18nPlugin'
 export default {
     name: 'Nav',
+    setup() {
+        const i18n = useI18n();
+
+        const switchLanguage = () => {
+            const locale = i18n.locale.value === 'en' ? 'hu' : 'en';
+            i18n.locale.value = locale;
+        };
+
+        return { i18n, switchLanguage };
+    },
     props: {
         title: String
     },

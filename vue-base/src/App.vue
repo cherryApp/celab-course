@@ -6,16 +6,31 @@
 <script>
 import Main from './components/Main.vue'
 import Nav from './components/Nav'
+import { provideI18n } from './plugin/i18nPlugin';
 
 export default {
   name: 'App',
+  setup() {
+    provideI18n({
+      locale: 'en',
+      messages: {
+        en: {
+          hello_world: 'Hello World'
+        },
+        hu: {
+          hello_world: 'Heló Világ'
+        }
+      }
+    })
+  },
   components: {
     Main,
     Nav
   },
   data() {
     return {
-      title:'Cavity Eye app'
+      locale: 'en',
+      title: 'hello_world'
     }
   }
 }

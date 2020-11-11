@@ -21,5 +21,5 @@ createApp(App)
 ```
 
 ## Localisation
-- `vue add i18n`
+- `npm i @vue/composition-api`
 - 
