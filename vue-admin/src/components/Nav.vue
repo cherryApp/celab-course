@@ -9,9 +9,8 @@
             <!-- Navigation. -->
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li v-for="item in navigation" :key="item.href" class="nav-item">
-                    <a class="nav-link" v-bind:href=item.href>
-                        {{ $translate(item.text) }}
-                    </a>
+                    <a class="nav-link" v-bind:href=item.href 
+                        v-translate="item.text"></a>
                 </li>
             </ul>
             
@@ -51,6 +50,7 @@ export default {
     },
     methods: {
         swLang(event) {
+            console.log(event.target.getAttribute('data-lang'))
             this.setLocale(
                 event.target.getAttribute('data-lang') || 'hu'
             );

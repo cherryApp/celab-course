@@ -6,34 +6,50 @@ const localeConfig = {
     messages: ref({})
 };
 
+const translatedElements = [];
+
+const updateTranslations = () => {
+    console.log(translatedElements);
+    for (const item of translatedElements) {
+        item.el.innerHTML = localeConfig.messages.value[localeConfig.locale.value]
+            ? localeConfig.messages.value[localeConfig.locale.value][item.value]
+            : 'missing_translate';
+    }
+};
+
 const setTranslation = messages => {
     localeConfig.messages.value = messages || {};
+    updateTranslations();
 }
 
 const setLocale = locale => {
     localeConfig.locale.value = locale || 'en';
+    updateTranslations();
+}
+
+const getLocale = () => localeConfig.locale.value;
+
+const translate = key => {
+    return localeConfig.messages.value[localeConfig.locale.value]
+        ? localeConfig.messages.value[localeConfig.locale.value][key]
+        : 'missing_translate';
 }
 
 export default {
     install: (app, config) => {
-        console.log('installed');
-
         setLocale(config.locale);
         setTranslation(config.messages);
 
-        app.config.globalProperties.$translate = key => {
-            return localeConfig.messages.value[localeConfig.locale.value]
-                ? localeConfig.messages.value[localeConfig.locale.value][key]
-                : 'missing_translate';
-        }
+        app.config.globalProperties.$translate = translate;
         
         app.config.globalProperties.setTranslation = setTranslation;        
         app.config.globalProperties.setLocale = setLocale;
+        app.config.globalProperties.getLocale = getLocale;
 
         app.directive('translate', {
-            mounted: function(el, bindings) {
-                console.log(el, bindings);
-                el.innerHTML = 'test';
+            mounted (el, binding) {
+                translatedElements.push({ el, value: binding.value });
+                updateTranslations();
             }
         })
     }
