@@ -1,15 +1,27 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Nav :title=title></Nav>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Nav from './components/Nav.vue';
+import { provideI18n } from './plugin/i18nPlugin';
+import { messages } from './plugin/messages';
 
 export default {
   name: 'App',
+  setup() {
+    provideI18n({
+      locale: 'hu',
+      messages
+    });
+  },
   components: {
-    HelloWorld
+    Nav
+  },
+  data() {
+    return {
+      title: 'app_title'
+    }
   }
 }
 </script>
@@ -19,8 +31,6 @@ export default {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
 }
 </style>
