@@ -4,6 +4,7 @@
     "translates": {
       "en": {
         "home": "Home",
+        "orders": "Orders",
         "first_name": "First Name",
         "last_name": "Last Name",
         "email": "Email",
@@ -12,6 +13,7 @@
       },
       "hu": {
         "home": "Home",
+        "orders": "Rendelések",
         "first_name": "Keresztnév",
         "last_name": "Vezetéknév",
         "email": "Email cím",
@@ -19,14 +21,18 @@
         "address": "Cím"
       }
     },
+    "navigation": [
+      {"href": "/", "text": "home"},
+      {"href": "/orders", "text": "orders"}
+    ],
     "columns": [
-      {
-        "key": "firstName",
-        "label": "first_name"
-      },
       {
         "key": "lastName",
         "label": "last_name"
+      },
+      {
+        "key": "firstName",
+        "label": "first_name"
       },
       {
         "key": "email",

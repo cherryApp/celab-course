@@ -1,7 +1,7 @@
 <template>
-  <Nav :title=title></Nav>
+  <Nav :title=title :navigation=settings.navigation></Nav>
   <div class="container">
-    <Main :columns=settings.columns />
+    <Main :columns=settings.columns :rows=users />
   </div>
 </template>
 
@@ -38,7 +38,7 @@ export default {
   },
   data() {
     return {
-      title: 'app_title',
+      title: 'Cavity Eye 7.0.1',
       users: [],
       settings: []
     }
