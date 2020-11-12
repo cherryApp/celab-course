@@ -47,7 +47,8 @@ export default {
     },
     props: {
         title: String,
-        navigation: Array
+        navigation: Array,
+        translates: Object
     }
 }
 </script>

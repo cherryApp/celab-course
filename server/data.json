@@ -1,26 +1,44 @@
 {
   "settings": {
     "appName": "Cavity Eye System",
+    "translates": {
+      "en": {
+        "home": "Home",
+        "first_name": "First Name",
+        "last_name": "Last Name",
+        "email": "Email",
+        "gender": "Gender",
+        "address": "Address"
+      },
+      "hu": {
+        "home": "Home",
+        "first_name": "Keresztnév",
+        "last_name": "Vezetéknév",
+        "email": "Email cím",
+        "gender": "Nem",
+        "address": "Cím"
+      }
+    },
     "columns": [
       {
         "key": "firstName",
-        "label": "Fname"
+        "label": "first_name"
       },
       {
         "key": "lastName",
-        "label": "Lname"
+        "label": "last_name"
       },
       {
         "key": "email",
-        "label": "Email"
+        "label": "email"
       },
       {
         "key": "gender",
-        "label": "Gender"
+        "label": "gender"
       },
       {
         "key": "address",
-        "label": "Address"
+        "label": "address"
       }
     ]
   },
