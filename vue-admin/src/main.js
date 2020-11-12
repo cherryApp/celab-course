@@ -9,5 +9,8 @@ import Translator from './plugin/translator';
 import App from './App.vue';
 
 createApp(App)
-    .use(Translator, {locale: 'hu'})
+    .use(Translator, {
+        locale: 'en', 
+        url: 'http://localhost:3000/translates'
+    })
     .mount('#app');

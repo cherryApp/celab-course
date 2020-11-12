@@ -37,7 +37,7 @@ export default {
         this.settings = responses[0].data;
         this.users = responses[1].data;
         // setMessages(this.settings.translates);
-        this.setTranslation(this.settings.translates);
+        // this.setTranslation(this.settings.translates);
       }
     )
   },

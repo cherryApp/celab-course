@@ -1,28 +1,28 @@
 {
+  "translates": {
+    "en": {
+      "home": "Home",
+      "orders": "Orders",
+      "first_name": "First Name",
+      "last_name": "Last Name",
+      "email": "Email",
+      "gender": "Gender",
+      "address": "Address",
+      "delete_message": "Are you sure?"
+    },
+    "hu": {
+      "home": "Home",
+      "orders": "Rendelések",
+      "first_name": "Keresztnév",
+      "last_name": "Vezetéknév",
+      "email": "Email cím",
+      "gender": "Nem",
+      "address": "Cím",
+      "delete_message": "Biztosan törli az adatokat?"
+    }
+  },
   "settings": {
     "appName": "Cavity Eye System",
-    "translates": {
-      "en": {
-        "home": "Home",
-        "orders": "Orders",
-        "first_name": "First Name",
-        "last_name": "Last Name",
-        "email": "Email",
-        "gender": "Gender",
-        "address": "Address",
-        "delete_message": "Are you sure?"
-      },
-      "hu": {
-        "home": "Home",
-        "orders": "Rendelések",
-        "first_name": "Keresztnév",
-        "last_name": "Vezetéknév",
-        "email": "Email cím",
-        "gender": "Nem",
-        "address": "Cím",
-        "delete_message": "Biztosan törli az adatokat?"
-      }
-    },
     "navigation": [
       {
         "href": "/",
@@ -132,14 +132,6 @@
       "email": "inortunenb@wikipedia.org",
       "gender": "Female",
       "address": "904 Forster Lane"
-    },
-    {
-      "id": 13,
-      "firstName": "Dona",
-      "lastName": "Trevenu",
-      "email": "dtrevenuc@gmpg.org",
-      "gender": "Female",
-      "address": "8927 Toban Terrace"
     },
     {
       "id": 14,

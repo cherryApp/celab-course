@@ -1,5 +1,6 @@
 // plugins/i18n.js
 import { ref } from 'vue';
+import axios from 'axios';
 
 const localeConfig = {
     locale: ref('en'),
@@ -9,12 +10,19 @@ const localeConfig = {
 const translatedElements = [];
 
 const updateTranslations = () => {
-    console.log(translatedElements);
     for (const item of translatedElements) {
         item.el.innerHTML = localeConfig.messages.value[localeConfig.locale.value]
             ? localeConfig.messages.value[localeConfig.locale.value][item.value]
             : 'missing_translate';
     }
+};
+
+const loadTranslation = url => {
+    axios.get(url)
+        .then( resp => {
+            setTranslation(resp.data);
+         } )
+        .catch( err => console.error(err) );
 };
 
 const setTranslation = messages => {
@@ -23,8 +31,10 @@ const setTranslation = messages => {
 }
 
 const setLocale = locale => {
-    localeConfig.locale.value = locale || 'en';
-    updateTranslations();
+    if (localeConfig.locale.value !== locale) {
+        localeConfig.locale.value = locale || 'en';
+        updateTranslations();
+    }
 }
 
 const getLocale = () => localeConfig.locale.value;
@@ -39,6 +49,10 @@ export default {
     install: (app, config) => {
         setLocale(config.locale);
         setTranslation(config.messages);
+
+        if (config.url) {
+            loadTranslation(config.url);
+        }
 
         app.config.globalProperties.$translate = translate;
         
