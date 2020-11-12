@@ -95,10 +95,10 @@
     },
     {
       "id": 6,
-      "firstName": "Audry",
-      "lastName": "Opfer",
+      "firstName": "Kocsis",
+      "lastName": "Kevin",
       "email": "aopfer5@craigslist.org",
-      "gender": "Female",
+      "gender": "Male",
       "address": "6 Manley Alley"
     },
     {
@@ -118,38 +118,6 @@
       "address": "97 Northridge Center"
     },
     {
-      "id": 11,
-      "firstName": "Beverly",
-      "lastName": "Blenkiron",
-      "email": "bblenkirona@psu.edu",
-      "gender": "Female",
-      "address": "1 Stoughton Trail"
-    },
-    {
-      "id": 12,
-      "firstName": "Imojean",
-      "lastName": "Nortunen",
-      "email": "inortunenb@wikipedia.org",
-      "gender": "Female",
-      "address": "904 Forster Lane"
-    },
-    {
-      "id": 14,
-      "firstName": "Jacinta",
-      "lastName": "Hargroves",
-      "email": "jhargrovesd@fastcompany.com",
-      "gender": "Female",
-      "address": "1604 Dayton Court"
-    },
-    {
-      "id": 15,
-      "firstName": "Henka",
-      "lastName": "Giametti",
-      "email": "hgiamettie@51.la",
-      "gender": "Female",
-      "address": "60864 Grayhawk Lane"
-    },
-    {
       "id": 16,
       "firstName": "Elnar",
       "lastName": "Clough",
@@ -164,30 +132,6 @@
       "email": "bhartnessg@discovery.com",
       "gender": "Male",
       "address": "41325 Westerfield Point"
-    },
-    {
-      "id": 18,
-      "firstName": "Karrie",
-      "lastName": "Lamberti",
-      "email": "klambertih@hibu.com",
-      "gender": "Female",
-      "address": "9181 Carioca Hill"
-    },
-    {
-      "id": 19,
-      "firstName": "Cass",
-      "lastName": "Wais",
-      "email": "cwaisi@hatena.ne.jp",
-      "gender": "Male",
-      "address": "29880 8th Park"
-    },
-    {
-      "id": 20,
-      "firstName": "Kathe",
-      "lastName": "Prichet",
-      "email": "kprichetj@techcrunch.com",
-      "gender": "Female",
-      "address": "6 Forest Dale Alley"
     },
     {
       "id": 21,

@@ -1,6 +1,5 @@
 // plugins/i18n.js
 import { ref } from 'vue';
-import axios from 'axios';
 
 const localeConfig = {
     locale: ref('en'),
@@ -11,14 +10,12 @@ const translatedElements = [];
 
 const updateTranslations = () => {
     for (const item of translatedElements) {
-        item.el.innerHTML = localeConfig.messages.value[localeConfig.locale.value]
-            ? localeConfig.messages.value[localeConfig.locale.value][item.value]
-            : 'missing_translate';
+        item.el.innerHTML = translate(item.value);
     }
 };
 
-const loadTranslation = url => {
-    axios.get(url)
+const loadTranslation = (url, $http) => {
+    $http.get(url)
         .then( resp => {
             setTranslation(resp.data);
          } )
@@ -51,7 +48,7 @@ export default {
         setTranslation(config.messages);
 
         if (config.url) {
-            loadTranslation(config.url);
+            loadTranslation(config.url, app.config.globalProperties.$http);
         }
 
         app.config.globalProperties.$translate = translate;
@@ -63,7 +60,7 @@ export default {
         app.directive('translate', {
             mounted (el, binding) {
                 translatedElements.push({ el, value: binding.value });
-                updateTranslations();
+                el.innerHTML = translate(binding.value);
             }
         })
     }
