@@ -10,7 +10,7 @@
             <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
                 <li v-for="item in navigation" :key="item.href" class="nav-item">
                     <a class="nav-link" v-bind:href=item.href>
-                        {{ i18n.$t(item.text) }}
+                        {{ $translate(item.text) }}
                     </a>
                 </li>
             </ul>
@@ -22,8 +22,8 @@
                             <i class="fa fa-language"></i>
                         </button>
                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="triggerId">
-                    <button @click="switchLanguage" data-lang="en" class="dropdown-item" href="#">en</button>
-                    <button @click="switchLanguage" data-lang="hu" class="dropdown-item" href="#">hu</button>
+                    <button @click="swLang" data-lang="en" class="dropdown-item" href="#">en</button>
+                    <button @click="swLang" data-lang="hu" class="dropdown-item" href="#">hu</button>
                 </div>
             </div>
         </div>
@@ -31,23 +31,30 @@
 </template>
 
 <script>
-import { useI18n } from '../plugin/i18nPlugin';
+// import { useI18n } from '../plugin/i18nPlugin';
 
 export default {
     name: 'Nav',
     setup() {
-        const i18n = useI18n();
+        /* const i18n = useI18n();
 
         const switchLanguage = (event) => {
             const lang = event.target.getAttribute('data-lang');
             i18n.locale.value = lang || 'hu';
         };
 
-        return { i18n, switchLanguage };
+        return { i18n, switchLanguage }; */
     },
     props: {
         title: String,
         navigation: Array
+    },
+    methods: {
+        swLang(event) {
+            this.setLocale(
+                event.target.getAttribute('data-lang') || 'hu'
+            );
+        }
     }
 }
 </script>

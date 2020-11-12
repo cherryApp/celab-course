@@ -9,7 +9,8 @@
         "last_name": "Last Name",
         "email": "Email",
         "gender": "Gender",
-        "address": "Address"
+        "address": "Address",
+        "delete_message": "Are you sure?"
       },
       "hu": {
         "home": "Home",
@@ -18,12 +19,19 @@
         "last_name": "Vezetéknév",
         "email": "Email cím",
         "gender": "Nem",
-        "address": "Cím"
+        "address": "Cím",
+        "delete_message": "Biztosan törli az adatokat?"
       }
     },
     "navigation": [
-      {"href": "/", "text": "home"},
-      {"href": "/orders", "text": "orders"}
+      {
+        "href": "/",
+        "text": "home"
+      },
+      {
+        "href": "/orders",
+        "text": "orders"
+      }
     ],
     "columns": [
       {
@@ -79,43 +87,11 @@
   "users": [
     {
       "id": 1,
-      "firstName": "Zebedee",
+      "firstName": "Winnettou",
       "lastName": "Kalányos",
-      "email": "zghelerdini0@kickstarter.com",
+      "email": "kw@kickstarter.com",
       "gender": "Male",
       "address": "23 Bunting Center"
-    },
-    {
-      "id": 2,
-      "firstName": "Zeb",
-      "lastName": "Wynrahame",
-      "email": "zwynrahame1@multiply.com",
-      "gender": "Male",
-      "address": "1 Helena Street"
-    },
-    {
-      "id": 3,
-      "firstName": "Sándor",
-      "lastName": "Zellwegger",
-      "email": "respasa2@mediafire.com",
-      "gender": "Male",
-      "address": "32183 Northridge Avenue"
-    },
-    {
-      "id": 4,
-      "firstName": "Linnet",
-      "lastName": "Batterton",
-      "email": "lbatterton3@drupal.org",
-      "gender": "Female",
-      "address": "5091 Sachtjen Point"
-    },
-    {
-      "id": 5,
-      "firstName": "Bertram",
-      "lastName": "Cowwell",
-      "email": "bcowwell4@storify.com",
-      "gender": "Male",
-      "address": "69897 Moland Junction"
     },
     {
       "id": 6,
@@ -124,22 +100,6 @@
       "email": "aopfer5@craigslist.org",
       "gender": "Female",
       "address": "6 Manley Alley"
-    },
-    {
-      "id": 7,
-      "firstName": "Maridel",
-      "lastName": "Benini",
-      "email": "mbenini6@wordpress.org",
-      "gender": "Female",
-      "address": "89084 Leroy Road"
-    },
-    {
-      "id": 8,
-      "firstName": "Stuart",
-      "lastName": "Antonignetti",
-      "email": "santonignetti7@plala.or.jp",
-      "gender": "Male",
-      "address": "28 Corben Avenue"
     },
     {
       "id": 9,

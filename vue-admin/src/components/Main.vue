@@ -3,7 +3,7 @@
         <thead>
             <tr>
                 <th v-for="col in columns" :key="col.key">
-                    {{ i18n.$t(col.label) }}
+                    {{ $translate(col.label) }}
                 </th>
                 <th></th>
             </tr>
@@ -11,14 +11,14 @@
         <tbody>
             <tr v-for="row in rows" :key="row">
                 <td v-for="col in columns" :key="col.key">
-                    <input v-bind:value=row[col.key] type="text" class="form-control">
+                    <input v-model="row[col.key]" type="text" class="form-control">
                 </td>
                 <td>
                     <div class="btn-group">
-                        <button class="btn btn-info">
+                        <button @click="onUpdate(row)" class="btn btn-info">
                             <i class="fa fa-refresh"></i>
                         </button>
-                        <button class="btn btn-danger">
+                        <button @click="onDelete(row)" class="btn btn-danger">
                             <i class="fa fa-trash"></i>
                         </button>
                     </div>
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-import { useI18n } from '../plugin/i18nPlugin';
+// import { useI18n } from '../plugin/i18nPlugin';
 
 export default {
     name: 'Main',
@@ -38,7 +38,15 @@ export default {
         rows: Array
     },
     setup() {
-        return { i18n: useI18n() };
+        // return { i18n: useI18n() };
+    },
+    methods: {
+        onUpdate(row) {
+            this.$emit('update', row);
+        },
+        onDelete(row) {
+            this.$emit('delete', row);
+        }
     }
 }
 </script>
