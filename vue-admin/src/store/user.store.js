@@ -18,5 +18,15 @@ export default () => {
         }
     }
 
-    return { ...toRefs(state), load };
+    const page = async (pageNumber) => {
+        try {
+            const response = await $http.get(`/users?_page=${pageNumber}`);
+            state.count = response.headers['x-total-count'];
+            state.list = response.data;
+        } catch(e) {
+            state.error = e;
+        }
+    };
+
+    return { ...toRefs(state), load, page };
 };

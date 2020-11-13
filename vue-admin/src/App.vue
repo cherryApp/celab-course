@@ -25,8 +25,8 @@ export default {
     Main
   },
   setup() {
-    const { list, load, error } = UserStore();
-    load();
+    const { list, error, page } = UserStore();
+    page(1);
     return { userList: list, userError: error };
   },
   beforeMount() {
