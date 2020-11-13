@@ -1,23 +1,26 @@
 <template>
   <Nav :title=title :navigation=settings.navigation></Nav>
   <div class="container">
-    <Main 
+    <Login />
+    <!-- <Main 
       :columns="settings.columns" 
-      :store="userStore" />
+      :store="userStore" /> -->
   </div>
 </template>
 
 <script>
 import axios from 'axios';
 import Nav from './components/Nav';
-import Main from './components/Main';
+// import Main from './components/Main';
+import Login from './components/Login';
 import UserStore from './store/user.store';
 
 export default {
   name: 'App',
   components: {
     Nav,
-    Main
+    Login
+    // Main
   },
   setup() {
     return { userStore: UserStore() };
