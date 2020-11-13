@@ -1,8 +1,9 @@
 <template>
-  <form class="form-signin">
+  <form @submit="onSubmit" class="form-signin">
     <h1 class="h3 mb-3 font-weight-normal">Please sign in</h1>
     <label for="inputEmail" class="sr-only">Email address</label>
     <input
+      v-model="loginData.email"
       type="email"
       id="inputEmail"
       class="form-control"
@@ -12,6 +13,7 @@
     />
     <label for="inputPassword" class="sr-only">Password</label>
     <input
+      v-model="loginData.password"
       type="password"
       id="inputPassword"
       class="form-control"
@@ -21,11 +23,35 @@
     <button class="btn btn-lg btn-primary btn-block" type="submit">
       Sign in
     </button>
+
+    <div v-if="loginError" class="alert alert-danger mt-2">
+        {{ loginError }}
+    </div>
   </form>
 </template>
 
 <script>
-export default {};
+export default {
+    name: 'Login',
+    data() {
+        return {
+            loginData: {
+                email: '',
+                password: ''
+            },
+            loginError: ''
+        };
+    },
+    methods: {
+        onSubmit(event) {
+            event.preventDefault();
+            this.$http.post('/login', this.loginData).then(
+                resp => console.log(resp),
+                err => this.loginError = err.message
+            );
+        }
+    }
+};
 </script>
 
 <style scoped>

@@ -8,7 +8,8 @@
       "email": "Email",
       "gender": "Gender",
       "address": "Address",
-      "delete_message": "Are you sure?"
+      "delete_message": "Are you sure?",
+      "password": "Password"
     },
     "hu": {
       "home": "Home",
@@ -18,7 +19,8 @@
       "email": "Email cím",
       "gender": "Nem",
       "address": "Cím",
-      "delete_message": "Biztosan törli az adatokat?"
+      "delete_message": "Biztosan törli az adatokat?",
+      "password": "Jelszó"
     }
   },
   "settings": {
@@ -45,6 +47,10 @@
       {
         "key": "email",
         "label": "email"
+      },
+      {
+        "key": "password",
+        "label": "password"
       },
       {
         "key": "gender",
@@ -91,7 +97,8 @@
       "lastName": "Kalányos",
       "email": "kw@kickstarter.com",
       "gender": "Male",
-      "address": "23 Bunting Center"
+      "address": "23 Bunting Center",
+      "password": "$2a$10$nO37RwSBZjF8HTCg7fs3xeRdWUhbz8BvvJ.wZzVRowxUD6V9l4RFK"
     },
     {
       "id": 6,
@@ -99,7 +106,8 @@
       "lastName": "Opfer",
       "email": "aopfer5@craigslist.org",
       "gender": "Female",
-      "address": "6 Manley Alley"
+      "address": "6 Manley Alley",
+      "password": "$2a$10$5VkD0wFdAKrCq4xETHvdWuJI2EmaqpqMOgFvWtQQFwXyYlUAyYT5S"
     },
     {
       "id": 9,
@@ -107,7 +115,8 @@
       "lastName": "Clougher",
       "email": "eclougher8@hhs.gov",
       "gender": "Female",
-      "address": "35997 Onsgard Trail"
+      "address": "35997 Onsgard Trail",
+      "password": "$2a$10$0qsz/U5EpQFRu/wgN2hxrexYc3eFkgTq2dJDrIFxBALeXwakUKotS"
     },
     {
       "id": 10,
@@ -115,7 +124,8 @@
       "lastName": "Treadgall",
       "email": "otreadgall9@theguardian.com",
       "gender": "Female",
-      "address": "97 Northridge Center"
+      "address": "97 Northridge Center",
+      "password": "$2a$10$qtx997QZJ9kHAXOxvrN0S.f/N4Bpj5DmJLYqJ0l6n3dvRJ1wKjPkK"
     },
     {
       "id": 11,

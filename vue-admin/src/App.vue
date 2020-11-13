@@ -2,16 +2,16 @@
   <Nav :title=title :navigation=settings.navigation></Nav>
   <div class="container">
     <Login />
-    <!-- <Main 
+    <Main 
       :columns="settings.columns" 
-      :store="userStore" /> -->
+      :store="userStore" />
   </div>
 </template>
 
 <script>
 import axios from 'axios';
 import Nav from './components/Nav';
-// import Main from './components/Main';
+import Main from './components/Main';
 import Login from './components/Login';
 import UserStore from './store/user.store';
 
@@ -19,20 +19,18 @@ export default {
   name: 'App',
   components: {
     Nav,
-    Login
-    // Main
+    Login,
+    Main
   },
   setup() {
     return { userStore: UserStore() };
   },
   beforeMount() {
     Promise.all([
-      axios.get('http://localhost:3000/settings'),
-      this.getAllUsers()
+      axios.get('http://localhost:3000/settings')
     ]).then(
       responses => {
         this.settings = responses[0].data;
-        this.users = responses[1].data;
       }
     )
   },

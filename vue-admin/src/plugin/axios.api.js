@@ -21,8 +21,8 @@ axiosInstance.interceptors.request.use(
 
 axiosInstance.interceptors.response.use(
     response => {
-        if (response.data.token) {
-            localStorage.setItem('access_token', response.data.token);
+        if (response.data.accessToken) {
+            localStorage.setItem('access_token', response.data.accessToken);
         }
         return Promise.resolve(response);
     },
