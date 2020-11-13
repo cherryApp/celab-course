@@ -5,13 +5,15 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import 'font-awesome/css/font-awesome.min.css';
 
 import Translator from './plugin/translator';
+import AxiosModule from './plugin/axios.api';
 
 import App from './App.vue';
 
 createApp(App)
+    .use(AxiosModule)
     .use(Translator, {
-        locale: 'en',
-        url: 'http://localhost:3000/translates'
+        locale: navigator.language.split('-')[0],
+        url: '/translates'
     })
     .mount('#app');
 

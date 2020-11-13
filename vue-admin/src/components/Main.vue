@@ -2,9 +2,10 @@
     <table class="table table-striped">
         <thead>
             <tr>
-                <th v-for="col in columns" :key="col.key">
-                    {{ i18n.$t(col.label) }}
-                </th>
+                <th 
+                    v-for="col in columns" 
+                    :key="col.key" 
+                    v-translate="col.label"></th>
                 <th></th>
             </tr>
         </thead>
@@ -29,16 +30,11 @@
 </template>
 
 <script>
-import { useI18n } from '../plugin/i18nPlugin';
-
 export default {
     name: 'Main',
     props: {
         columns: Array,
         rows: Array
-    },
-    setup() {
-        return { i18n: useI18n() };
     },
     methods: {
         onUpdate(row) {

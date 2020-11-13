@@ -1,5 +1,4 @@
 import { ref } from 'vue';
-import axios from 'axios';
 
 const localeConfig = {
     locale: ref('en'),
@@ -14,8 +13,8 @@ const updateTranslations = () => {
     }
 }
 
-const loadTranslation = (url) => {
-    axios.get(url)
+const loadTranslation = (url, $http) => {
+    $http.get(url)
         .then( resp => setTranslation(resp.data) )
         .catch( err => console.error(err) );
 };
@@ -43,8 +42,9 @@ const translate = key => {
 // Install global Vuejs plugin.
 export default {
     install: (app, config) => {
+        setLocale(config.locale);
         if (config.url) {
-            loadTranslation(config.url);
+            loadTranslation(config.url, app.config.globalProperties.$http);
         }
 
         app.config.globalProperties.$translate = translate;
@@ -54,7 +54,6 @@ export default {
 
         app.directive('translate', {
             mounted(el, binding) {
-                console.log(el, binding);
                 translatedElements.push({el, value: binding.value});
                 el.innerHTML = translate(binding.value);
             }
