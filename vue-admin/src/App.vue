@@ -1,14 +1,9 @@
 <template>
   <Nav :title=title :navigation=settings.navigation></Nav>
-  <div v-if="userError" class="alert alert-danger">
-    {{ userError }}
-  </div>
   <div class="container">
     <Main 
       :columns="settings.columns" 
-      :rows="userList" 
-      @update="userUpdate"
-      @delete="userDelete" />
+      :state="userStore" />
   </div>
 </template>
 
@@ -25,9 +20,7 @@ export default {
     Main
   },
   setup() {
-    const { list, error, page } = UserStore();
-    page(1);
-    return { userList: list, userError: error };
+    return { userStore: UserStore() };
   },
   beforeMount() {
     Promise.all([
