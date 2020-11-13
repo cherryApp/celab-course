@@ -11,7 +11,7 @@
       </tr>
     </thead>
     <tbody>
-      <tr v-for="row in state.list.value" :key="row">
+      <tr v-for="row in store.list.value" :key="row">
         <td v-for="col in columns" :key="col.key">
           <input v-model="row[col.key]" type="text" class="form-control" />
         </td>
@@ -35,17 +35,17 @@ export default {
   name: "Main",
   props: {
     columns: Array,
-    state: Object,
+    store: Object,
   },
   mounted() {
-      this.state.page(1);
+      this.store.page(1);
   },
   methods: {
     onUpdate(row) {
-      this.$emit("update", row);
+      this.store.update(row);
     },
     onDelete(row) {
-      this.$emit("delete", row);
+      this.store.remove(row);
     },
   },
 };

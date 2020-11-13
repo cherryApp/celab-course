@@ -3,7 +3,7 @@
   <div class="container">
     <Main 
       :columns="settings.columns" 
-      :state="userStore" />
+      :store="userStore" />
   </div>
 </template>
 

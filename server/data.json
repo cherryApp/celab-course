@@ -128,42 +128,10 @@
     {
       "id": 12,
       "firstName": "Imojean",
-      "lastName": "Nortunen",
+      "lastName": "Szabó",
       "email": "inortunenb@wikipedia.org",
       "gender": "Female",
       "address": "904 Forster Lane"
-    },
-    {
-      "id": 13,
-      "firstName": "Dona",
-      "lastName": "Trevenu",
-      "email": "dtrevenuc@gmpg.org",
-      "gender": "Female",
-      "address": "8927 Toban Terrace"
-    },
-    {
-      "id": 14,
-      "firstName": "Jacinta",
-      "lastName": "Hargroves",
-      "email": "jhargrovesd@fastcompany.com",
-      "gender": "Female",
-      "address": "1604 Dayton Court"
-    },
-    {
-      "id": 15,
-      "firstName": "Henka",
-      "lastName": "Giametti",
-      "email": "hgiamettie@51.la",
-      "gender": "Female",
-      "address": "60864 Grayhawk Lane"
-    },
-    {
-      "id": 16,
-      "firstName": "Elnar",
-      "lastName": "Clough",
-      "email": "ecloughf@foxnews.com",
-      "gender": "Male",
-      "address": "7476 Independence Junction"
     },
     {
       "id": 17,
