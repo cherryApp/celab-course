@@ -1,40 +1,36 @@
-// plugins/i18n.js
 import { ref } from 'vue';
+import axios from 'axios';
 
 const localeConfig = {
     locale: ref('en'),
     messages: ref({})
 };
 
+const loadTranslation = (url) => {
+    axios.get(url)
+        .then( resp => setTranslation(resp.data) )
+        .catch( err => console.error(err) );
+};
+
 const setTranslation = messages => {
     localeConfig.messages.value = messages || {};
 }
 
-const setLocale = locale => {
-    localeConfig.locale.value = locale || 'en';
+const translate = key => {
+    return localeConfig.messages.value[localeConfig.locale.value]
+        ? localeConfig.messages.value[localeConfig.locale.value][key]
+        : 'missing_translate';
 }
 
+// Install global Vuejs plugin.
 export default {
     install: (app, config) => {
-        console.log('installed');
+        console.log('installed', app, config, localeConfig);
 
-        setLocale(config.locale);
-        setTranslation(config.messages);
-
-        app.config.globalProperties.$translate = key => {
-            return localeConfig.messages.value[localeConfig.locale.value]
-                ? localeConfig.messages.value[localeConfig.locale.value][key]
-                : 'missing_translate';
+        if (config.url) {
+            loadTranslation(config.url);
         }
-        
-        app.config.globalProperties.setTranslation = setTranslation;        
-        app.config.globalProperties.setLocale = setLocale;
 
-        app.directive('translate', {
-            mounted: function(el, bindings) {
-                console.log(el, bindings);
-                el.innerHTML = 'test';
-            }
-        })
+        app.config.globalProperties.$translate = translate;
     }
 }

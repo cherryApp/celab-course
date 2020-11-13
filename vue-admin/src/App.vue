@@ -13,7 +13,7 @@
 import axios from 'axios';
 import Nav from './components/Nav';
 import Main from './components/Main';
-// import { provideI18n, setMessages } from './plugin/i18nPlugin';
+import { provideI18n, setMessages } from './plugin/i18nPlugin';
 // import { messages } from './plugin/messages';
 
 
@@ -24,9 +24,9 @@ export default {
     Main
   },
   setup() {
-    /* provideI18n({
+    provideI18n({
       locale: 'hu'
-    }); */
+    });
   },
   beforeMount() {
     Promise.all([
@@ -36,8 +36,7 @@ export default {
       responses => {
         this.settings = responses[0].data;
         this.users = responses[1].data;
-        // setMessages(this.settings.translates);
-        this.setTranslation(this.settings.translates);
+        setMessages(this.settings.translates);
       }
     )
   },

@@ -3,7 +3,7 @@
         <thead>
             <tr>
                 <th v-for="col in columns" :key="col.key">
-                    {{ $translate(col.label) }}
+                    {{ i18n.$t(col.label) }}
                 </th>
                 <th></th>
             </tr>
@@ -29,7 +29,7 @@
 </template>
 
 <script>
-// import { useI18n } from '../plugin/i18nPlugin';
+import { useI18n } from '../plugin/i18nPlugin';
 
 export default {
     name: 'Main',
@@ -38,7 +38,7 @@ export default {
         rows: Array
     },
     setup() {
-        // return { i18n: useI18n() };
+        return { i18n: useI18n() };
     },
     methods: {
         onUpdate(row) {
