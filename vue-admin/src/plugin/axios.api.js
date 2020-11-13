@@ -38,3 +38,5 @@ export default {
         app.config.globalProperties.$http = axiosInstance;
     }
 }
+
+export const $http = axiosInstance;
