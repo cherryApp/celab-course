@@ -12,4 +12,17 @@ const UserSchema = new Schema({
 
 const UserModel = mongoose.model('User', UserSchema);
 
+// const old = UserModel.findById;
+// UserModel.findById = function(id) {
+//     console.log(this);
+//     return new Promise( function(res, rej) {
+//         old.call(this, [id, function(err, doc) {
+//             if (err) {
+//                 return rej(err);
+//             }
+//             res(doc);
+//         }]);
+//     });
+// };
+
 module.exports = UserModel;

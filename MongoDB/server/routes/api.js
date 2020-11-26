@@ -21,4 +21,12 @@ router.post('/user', async (req, res, next) => {
     res.json({ success: true });
 });
 
+// Update a User.
+router.put('/user/:id', async (req, res, next) => {
+    const { id } = req.params;
+    const user = await User.findById(id);
+    await user.update(req.body);
+    res.json({ success: true });
+});
+
 module.exports = router;
