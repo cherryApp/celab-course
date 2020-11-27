@@ -31,7 +31,7 @@ export default () => {
     const update = async entity => {
         try {
             await $http.put(
-                `/${entityName}/${entity.id}`,
+                `/${entityName}/${entity._id}`,
                 entity
             );
         } catch(e) {
@@ -41,7 +41,7 @@ export default () => {
 
     const remove = async entity => {
         try {
-            await $http.delete(`/${entityName}/${entity.id}`);
+            await $http.delete(`/${entityName}/${entity._id}`);
             state.list.splice( state.list.indexOf(entity), 1 );
         } catch(e) {
             state.error = e;
