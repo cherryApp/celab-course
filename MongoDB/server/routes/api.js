@@ -1,6 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const User = require('../model/user');
+const fs = require('fs');
+const path = require('path');
 
 /* GET api page. */
 router.get('/', function(req, res, next) {
@@ -61,7 +63,7 @@ router.post('/user', async (req, res, next) => {
         res.statusCode = 400;
         return res.json({success: false, error: e});
     }
-    res.json({ success: true });
+    res.json({ success: true, data: user });
 });
 
 // Update a User.
@@ -89,4 +91,27 @@ router.delete('/user/:id', async (req, res, next) => {
     res.json({ success: true });
 });
 
+router.get('/user/fill/done', async (req, res, next) => {
+    try {
+        let userList = fs.readFileSync(path.join(__dirname, '../../../server/data.json'), 'utf8');
+        const { users } = JSON.parse(userList);
+        await User.insertMany(users);
+    } catch(e) {
+        res.statusCode = 400;
+        return res.json({success: false, error: e});
+    }
+    res.json({success: true});
+});
+
 module.exports = router;
+
+/**
+ * Example request.
+fetch('/api/user/find', {
+    method: 'POST',
+    body: JSON.stringify({email: 'edu$'}),
+    headers: { 'Content-Type': 'application/json' }
+}).then( r => r.json() )
+.then( j => console.log(j) )
+.catch( e => console.error(e) );
+ */
